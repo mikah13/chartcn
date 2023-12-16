@@ -4,6 +4,7 @@ import { GeistSans } from 'geist/font/sans';
 
 import './globals.css';
 import { cn } from '@/lib/utils';
+import { ThemeProvider } from '@/providers/ThemeProvider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,11 +20,18 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased',
+          'min-h-screen bg-background antialiased',
           GeistSans.className
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
