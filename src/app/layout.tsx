@@ -6,6 +6,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { TailwindIndicator } from '@/components/TailwindIndicator';
+import Header from '@/components/Header';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -31,6 +32,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Header />
           {children}
           <TailwindIndicator />
         </ThemeProvider>
