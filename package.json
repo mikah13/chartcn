@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "add": "^2.0.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "geist": "^1.2.0",
     "lucide-react": "^0.297.0",
     "next": "14.0.4",
+    "next-themes": "^0.2.1",
+    "pnpm": "^8.12.1",
     "react": "^18",
     "react-dom": "^18",
     "recharts": "^2.10.3",
