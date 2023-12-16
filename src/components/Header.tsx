@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
 
 import React from 'react';
+import { Button } from './ui/button';
+import { Github, GithubIcon } from 'lucide-react';
+import { Icons } from './Icons';
 
 const Header = () => {
   return (
@@ -11,17 +14,9 @@ const Header = () => {
         <div className='flex flex-1 items-center justify-between space-x-2 md:justify-end'>
           <nav className='flex items-center'>
             <Link href={'/'} target='_blank' rel='noreferrer'>
-              {/* <div
-            className={cn(
-              buttonVariants({
-                variant: 'ghost',
-              }),
-              'w-9 px-0'
-            )}
-          >
-            <Icons.gitHub className='h-4 w-4' />
-            <span className='sr-only'>GitHub</span>
-          </div> */}
+              <Button size='icon' variant='ghost'>
+                <Icons.gitHub className='h-5 w-5' />
+              </Button>
             </Link>
 
             <ThemeToggle />
