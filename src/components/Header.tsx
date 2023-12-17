@@ -4,7 +4,6 @@ import { ThemeToggle } from './ThemeToggle';
 
 import React from 'react';
 import { Button } from './ui/button';
-import { Github, GithubIcon } from 'lucide-react';
 import { Icons } from './Icons';
 
 const Header = () => {
