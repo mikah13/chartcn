@@ -7,9 +7,10 @@ import {
 	ResponsiveContainer,
 	XAxis,
 	YAxis,
-	Tooltip,
+	Tooltip as DefaultTooltip,
 } from 'recharts'
-type Props = {}
+import Tooltip from './Tooltip'
+
 const data = [
 	{
 		name: 'Page A',
@@ -54,7 +55,17 @@ const data = [
 		amt: 2100,
 	},
 ]
-const AreaChart = (props: Props) => {
+
+export type TAreaData = {
+	[k: string]: string
+}
+type AreaChartType = {
+	tooltip?: boolean
+	// data: TAreaData
+	// className?: string | undefined
+	// colors: string[]
+}
+const AreaChart = ({ tooltip = true }: AreaChartType) => {
 	return (
 		<ResponsiveContainer width="100%" height={250}>
 			<AreaRechart
@@ -72,7 +83,7 @@ const AreaChart = (props: Props) => {
 						<stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
 					</linearGradient>
 				</defs>
-				<Tooltip />
+				{tooltip && <DefaultTooltip content={<Tooltip />} />}
 				<XAxis dataKey="name" />
 				<YAxis />
 				<Area

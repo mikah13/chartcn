@@ -1,5 +1,5 @@
 import { PageHeader, PageHeaderDescription, PageHeaderHeading } from '@/components/PageHeader'
-import AreaChart from '@/components/chart/AreaChart'
+import AreaChartEx from '@/components/examples/AreaChartEx'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import Image from 'next/image'
 
@@ -22,7 +22,7 @@ export default function Home() {
 							<CardTitle>Area Chart</CardTitle>
 						</CardHeader>
 						<CardContent className="pl-2">
-							<AreaChart />
+							<AreaChartEx />
 						</CardContent>
 					</Card>
 				</div>
