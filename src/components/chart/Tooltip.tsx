@@ -20,9 +20,7 @@ const Tooltip = <TValue extends ValueType, TName extends NameType>(
 								<span
 									style={{ backgroundColor: x.color }}
 									className={cn(`shrink-0  h-3 w-3 border-2`)}></span>
-								<p className="text-right whitespace-nowrap ">
-									{x.name} {x.color}
-								</p>
+								<p className="text-right whitespace-nowrap ">{x.name}</p>
 							</div>
 							<p className="font-medium text-right whitespace-nowrap ">{x.value}</p>
 						</div>
