@@ -7,13 +7,8 @@ const Tooltip = <TValue extends ValueType, TName extends NameType>(
 	props: TooltipProps<TValue, TName>
 ) => {
 	const { active, payload, label } = props
-	console.log(props)
 	if (active && payload && payload.length) {
 		return (
-			// <div className="custom-tooltip">
-			// 	<p className="label">{`${label} : ${payload[0].value}`}</p>
-			// 	<p className="desc">Anything you want can be displayed here.</p>
-			// </div>
 			<Card>
 				<CardHeader className="px-4 py-2 border-b">
 					<CardTitle className="text-sm">{label}</CardTitle>
@@ -23,10 +18,8 @@ const Tooltip = <TValue extends ValueType, TName extends NameType>(
 						<div className="flex items-center justify-between space-x-8" key={i}>
 							<div className="flex items-center space-x-2">
 								<span
-									className={cn(
-										'shrink-0  h-3 w-3 border-2 ',
-										`bg-[${x.color}]`
-									)}></span>
+									style={{ backgroundColor: x.color }}
+									className={cn(`shrink-0  h-3 w-3 border-2`)}></span>
 								<p className="text-right whitespace-nowrap ">
 									{x.name} {x.color}
 								</p>
