@@ -5,11 +5,21 @@ export type ChartProps = {
 	showLegend?: boolean
 	showTooltip?: boolean
 	data: DataType[]
-	color: string[]
+	colors?: string[]
+	dataKeys: string[]
+	showXLine?: boolean
+	showYLine?: boolean
 }
 
-export type AreaChartProps = ChartProps & {}
+export type AreaChartProps = ChartProps & {
+	stack?: boolean
+}
 
+export type LineChartProps = ChartProps & {}
+
+export type BarChartProps = ChartProps & {
+	stack?: boolean
+}
 export type DefaultDataType = {
 	xAxis?: string
 	yAxis?: string

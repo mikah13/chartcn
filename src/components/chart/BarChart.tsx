@@ -2,8 +2,8 @@
 import React from 'react'
 
 import {
-	Area,
-	AreaChart as AreaRechart,
+	Bar,
+	BarChart as BarRechart,
 	ResponsiveContainer,
 	XAxis,
 	YAxis,
@@ -12,9 +12,9 @@ import {
 	CartesianGrid,
 } from 'recharts'
 import Tooltip from './Tooltip'
-import { AreaChartProps } from '@/app/types'
+import { BarChartProps } from '@/app/types'
 
-const AreaChart = ({
+const BarChart = ({
 	showTooltip = true,
 	showLegend = true,
 	showGrid = false,
@@ -26,25 +26,13 @@ const AreaChart = ({
 	stack = false,
 	showXLine = true,
 	showYLine = true,
-}: AreaChartProps) => {
+}: BarChartProps) => {
 	return (
 		<ResponsiveContainer width={width} height={height}>
-			<AreaRechart data={data}>
-				<defs>
-					{colors?.map((color, index) => (
-						<linearGradient
-							key={`color-${index}`}
-							id={`color-${index}`}
-							x1="0"
-							y1="0"
-							x2="0"
-							y2="1">
-							<stop offset="5%" stopColor={color} stopOpacity={0.2} />
-							<stop offset="95%" stopColor={color} stopOpacity={0} />
-						</linearGradient>
-					))}
-				</defs>
-				{showTooltip && <DefaultTooltip content={<Tooltip />} />}
+			<BarRechart data={data}>
+				{showTooltip && (
+					<DefaultTooltip cursor={{ fill: 'transparent' }} content={<Tooltip />} />
+				)}
 				{showGrid && <CartesianGrid strokeDasharray="3 3" />}
 				{showLegend && <Legend />}
 				<XAxis
@@ -55,20 +43,18 @@ const AreaChart = ({
 				/>
 				<YAxis axisLine={showYLine} tickLine={false} />
 				{dataKeys.map((dkey, index) => (
-					<Area
+					<Bar
+						radius={[4, 4, 0, 0]}
 						key={index}
 						stackId={stack ? 1 : index}
-						type="monotone"
 						dataKey={dkey}
-						stroke={colors ? colors[index] : 'black'}
-						strokeWidth={2}
+						fill={colors ? colors[index] : 'black'}
 						fillOpacity={1}
-						fill={`url(#color-${index})`}
 					/>
 				))}
-			</AreaRechart>
+			</BarRechart>
 		</ResponsiveContainer>
 	)
 }
 
-export default AreaChart
+export default BarChart

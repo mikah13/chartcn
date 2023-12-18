@@ -1,7 +1,8 @@
 import { PageHeader, PageHeaderDescription, PageHeaderHeading } from '@/components/PageHeader'
 import AreaChartEx from '@/components/examples/AreaChartEx'
+import BarChartEx from '@/components/examples/BarChartEx'
+import LineChartEx from '@/components/examples/LineChartEx'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import Image from 'next/image'
 
 export default function Home() {
 	return (
@@ -19,12 +20,28 @@ export default function Home() {
 
 			<section>
 				<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-					<Card className="col-span-2">
+					<Card className="col-span-2 bg-zinc-100 dark:bg-zinc-900">
 						<CardHeader>
 							<CardTitle>Area Chart</CardTitle>
 						</CardHeader>
-						<CardContent className="pl-2">
+						<CardContent className="pl-2 ">
 							<AreaChartEx />
+						</CardContent>
+					</Card>
+					<Card className="col-span-2 bg-zinc-100 dark:bg-zinc-900">
+						<CardHeader>
+							<CardTitle>Line Chart</CardTitle>
+						</CardHeader>
+						<CardContent className="pl-2 ">
+							<LineChartEx />
+						</CardContent>
+					</Card>
+					<Card className="col-span-3 bg-zinc-100 dark:bg-zinc-900">
+						<CardHeader>
+							<CardTitle>Bar Chart</CardTitle>
+						</CardHeader>
+						<CardContent className="pl-2 ">
+							<BarChartEx />
 						</CardContent>
 					</Card>
 				</div>
