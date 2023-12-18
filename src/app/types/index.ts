@@ -1,16 +1,28 @@
 export type ChartProps = {
-	height?: number
+	width?: number | string
+	height?: number | string
 	showGrid?: boolean
 	showLegend?: boolean
 	showTooltip?: boolean
 	data: DataType[]
+	colors?: string[]
+	dataKeys: string[]
+	showXLine?: boolean
+	showYLine?: boolean
 }
 
-export type AreaChartProps = ChartProps & {}
+export type AreaChartProps = ChartProps & {
+	stack?: boolean
+}
 
-export type DataPoint = {
-	xAxis: string
+export type LineChartProps = ChartProps & {}
+
+export type BarChartProps = ChartProps & {
+	stack?: boolean
+}
+export type DefaultDataType = {
+	xAxis?: string
 	yAxis?: string
 }
 
-export type DataType = DataPoint & Record<string, string | number>
+export type DataType = DefaultDataType & Record<string, string | number>

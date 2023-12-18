@@ -2,8 +2,8 @@
 import React from 'react'
 
 import {
-	Area,
-	AreaChart as AreaRechart,
+	Line,
+	LineChart as LineRechart,
 	ResponsiveContainer,
 	XAxis,
 	YAxis,
@@ -12,9 +12,9 @@ import {
 	CartesianGrid,
 } from 'recharts'
 import Tooltip from './Tooltip'
-import { AreaChartProps } from '@/app/types'
+import { LineChartProps } from '@/app/types'
 
-const AreaChart = ({
+const LineChart = ({
 	showTooltip = true,
 	showLegend = true,
 	showGrid = false,
@@ -23,27 +23,12 @@ const AreaChart = ({
 	data,
 	colors,
 	dataKeys,
-	stack = false,
 	showXLine = true,
 	showYLine = true,
-}: AreaChartProps) => {
+}: LineChartProps) => {
 	return (
 		<ResponsiveContainer width={width} height={height}>
-			<AreaRechart data={data}>
-				<defs>
-					{colors?.map((color, index) => (
-						<linearGradient
-							key={`color-${index}`}
-							id={`color-${index}`}
-							x1="0"
-							y1="0"
-							x2="0"
-							y2="1">
-							<stop offset="5%" stopColor={color} stopOpacity={0.2} />
-							<stop offset="95%" stopColor={color} stopOpacity={0} />
-						</linearGradient>
-					))}
-				</defs>
+			<LineRechart data={data}>
 				{showTooltip && <DefaultTooltip content={<Tooltip />} />}
 				{showGrid && <CartesianGrid strokeDasharray="3 3" />}
 				{showLegend && <Legend />}
@@ -55,9 +40,8 @@ const AreaChart = ({
 				/>
 				<YAxis axisLine={showYLine} tickLine={false} />
 				{dataKeys.map((dkey, index) => (
-					<Area
+					<Line
 						key={index}
-						stackId={stack ? 1 : index}
 						type="monotone"
 						dataKey={dkey}
 						stroke={colors ? colors[index] : 'black'}
@@ -66,9 +50,9 @@ const AreaChart = ({
 						fill={`url(#color-${index})`}
 					/>
 				))}
-			</AreaRechart>
+			</LineRechart>
 		</ResponsiveContainer>
 	)
 }
 
-export default AreaChart
+export default LineChart
