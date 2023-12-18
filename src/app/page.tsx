@@ -10,7 +10,9 @@ export default function Home() {
 				<PageHeader className="relative pb-4 md:pb-8 lg:pb-12">
 					<PageHeaderHeading>ChartCN</PageHeaderHeading>
 					<PageHeaderDescription>
-						A collection of charts for your dashboard built with ShadCN and recharts
+						A collection of beautiful charts for your dashboard.
+						<br />
+						Built with ShadCN and rechart.
 					</PageHeaderDescription>
 				</PageHeader>
 			</section>
