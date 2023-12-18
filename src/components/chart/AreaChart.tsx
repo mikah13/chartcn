@@ -14,63 +14,12 @@ import {
 import Tooltip from './Tooltip'
 import { AreaChartProps } from '@/app/types'
 
-const data = [
-	{
-		name: 'Page A',
-		uv: 4000,
-		pv: 2400,
-		ac: 2400,
-		amt: 2400,
-	},
-	{
-		name: 'Page B',
-		uv: 3000,
-		pv: 1398,
-		ac: 2400,
-		amt: 2210,
-	},
-	{
-		name: 'Page C',
-		uv: 2000,
-		pv: 9800,
-		ac: 1231,
-		amt: 2290,
-	},
-	{
-		name: 'Page D',
-		uv: 2780,
-		pv: 3908,
-		ac: 6612,
-		amt: 2000,
-	},
-	{
-		name: 'Page E',
-		uv: 1890,
-		pv: 4800,
-		ac: 2400,
-		amt: 2181,
-	},
-	{
-		name: 'Page F',
-		uv: 2390,
-		pv: 3800,
-		ac: 311,
-		amt: 2500,
-	},
-	{
-		name: 'Page G',
-		uv: 3490,
-		pv: 4300,
-		ac: 5124,
-		amt: 2100,
-	},
-]
-
-export type TAreaData = {
-	[k: string]: string
-}
-
-const AreaChart = ({ showTooltip = true, showLegend = true, showGrid = true }: AreaChartProps) => {
+const AreaChart = ({
+	showTooltip = true,
+	showLegend = true,
+	showGrid = true,
+	data,
+}: AreaChartProps) => {
 	return (
 		<ResponsiveContainer width="100%" height={350}>
 			<AreaRechart data={data}>
@@ -89,8 +38,8 @@ const AreaChart = ({ showTooltip = true, showLegend = true, showGrid = true }: A
 					</linearGradient>
 				</defs>
 				{showTooltip && <DefaultTooltip content={<Tooltip />} />}
-				<XAxis dataKey="name" />
 				<CartesianGrid strokeDasharray="4 1 " />
+				<XAxis dataKey={'xAxis'} />
 				<YAxis />
 				<Area
 					type="monotone"
