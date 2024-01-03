@@ -2,6 +2,7 @@ import { PageHeader, PageHeaderDescription, PageHeaderHeading } from '@/componen
 import AreaChartEx from '@/components/examples/AreaChartEx'
 import BarChartEx from '@/components/examples/BarChartEx'
 import LineChartEx from '@/components/examples/LineChartEx'
+import PieChartEx from '@/components/examples/PieChartEx'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function Home() {
@@ -42,6 +43,15 @@ export default function Home() {
 						</CardHeader>
 						<CardContent className="pl-2 ">
 							<BarChartEx />
+						</CardContent>
+					</Card>
+
+					<Card className="col-span-1 bg-zinc-100 dark:bg-zinc-900">
+						<CardHeader>
+							<CardTitle>Pie Chart</CardTitle>
+						</CardHeader>
+						<CardContent className="pl-2 ">
+							<PieChartEx />
 						</CardContent>
 					</Card>
 				</div>

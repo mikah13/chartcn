@@ -10,9 +10,11 @@ const CustomTooltip = <TValue extends ValueType, TName extends NameType>(
 	if (active && payload && payload.length) {
 		return (
 			<Card>
-				<CardHeader className="px-4 py-2 border-b">
-					<CardTitle className="text-sm">{label}</CardTitle>
-				</CardHeader>
+				{label && (
+					<CardHeader className="px-4 py-2 border-b">
+						<CardTitle className="text-sm">{label}</CardTitle>
+					</CardHeader>
+				)}
 				<CardContent className="px-4 py-2 space-y-1">
 					{payload.map((x, i) => (
 						<div className="flex items-center justify-between space-x-8" key={i}>

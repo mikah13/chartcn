@@ -16,7 +16,11 @@ export type AreaChartProps = ChartProps & {
 }
 
 export type LineChartProps = ChartProps & {}
-export type PieChartProps = ChartProps & {}
+export type PieChartProps = Omit<ChartProps, 'data'> & {
+	data: Record<string, string | number>[][]
+	label?: boolean
+	nameKeys: string[]
+}
 
 export type BarChartProps = ChartProps & {
 	stack?: boolean

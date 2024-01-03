@@ -3,6 +3,7 @@
 import { PieChart as PieRechart, Pie, ResponsiveContainer } from 'recharts'
 
 import { PieChartProps } from '@/app/types'
+import Tooltip from './Tooltip'
 
 const PieChart = ({
 	width = '100%',
@@ -10,21 +11,22 @@ const PieChart = ({
 	data,
 	colors,
 	dataKeys,
+	nameKeys,
 	children,
+	label = true,
 }: PieChartProps) => {
 	return (
 		<ResponsiveContainer width={width} height={height}>
 			<PieRechart>
 				{children}
-				{dataKeys.map((dkey, index) => (
+				{data.map((data, index) => (
 					<Pie
+						dataKey={dataKeys[index]}
+						nameKey={nameKeys[index]}
+						data={data}
 						key={index}
-						type="monotone"
-						dataKey={dkey}
-						stroke={colors ? colors[index] : 'black'}
-						strokeWidth={2}
-						fillOpacity={1}
-						fill={`url(#color-${index})`}
+						fill={colors ? `${colors[index]}` : 'black'}
+						label
 					/>
 				))}
 			</PieRechart>
