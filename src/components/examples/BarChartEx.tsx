@@ -1,6 +1,8 @@
 'use client'
 
-import BarChart from '../chart/BarChart'
+import BarChart from '@/components/chart/BarChart'
+import { XAxis, YAxis } from 'recharts'
+import Tooltip from '../chart/Tooltip'
 
 const data = [
 	{
@@ -56,7 +58,18 @@ const data = [
 const dataKeys = ['total']
 const colors = ['#48d871']
 const BarChartEx = () => {
-	return <BarChart data={data} colors={colors} dataKeys={dataKeys} />
+	return (
+		<BarChart data={data} colors={colors} dataKeys={dataKeys}>
+			<Tooltip />
+			<YAxis
+				stroke="#888888"
+				fontSize={12}
+				tickLine={false}
+				axisLine={false}
+				tickFormatter={(value: number) => `$${value}`}
+			/>
+		</BarChart>
+	)
 }
 
 export default BarChartEx

@@ -1,31 +1,17 @@
 'use client'
 import React from 'react'
 
-import {
-	Area,
-	AreaChart as AreaRechart,
-	ResponsiveContainer,
-	XAxis,
-	YAxis,
-	Tooltip as DefaultTooltip,
-	Legend,
-	CartesianGrid,
-} from 'recharts'
-import Tooltip from './Tooltip'
+import { Area, AreaChart as AreaRechart, ResponsiveContainer } from 'recharts'
 import { AreaChartProps } from '@/app/types'
 
 const AreaChart = ({
-	showTooltip = true,
-	showLegend = true,
-	showGrid = false,
 	width = '100%',
 	height = 350,
 	data,
 	colors,
 	dataKeys,
 	stack = false,
-	showXLine = true,
-	showYLine = true,
+	children,
 }: AreaChartProps) => {
 	return (
 		<ResponsiveContainer width={width} height={height}>
@@ -44,16 +30,7 @@ const AreaChart = ({
 						</linearGradient>
 					))}
 				</defs>
-				{showTooltip && <DefaultTooltip content={<Tooltip />} />}
-				{showGrid && <CartesianGrid strokeDasharray="3 3" />}
-				{showLegend && <Legend />}
-				<XAxis
-					padding={{ left: 16 }}
-					dataKey="xAxis"
-					axisLine={showXLine}
-					tickLine={false}
-				/>
-				<YAxis axisLine={showYLine} tickLine={false} />
+				{children}
 				{dataKeys.map((dkey, index) => (
 					<Area
 						key={index}

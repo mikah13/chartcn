@@ -1,9 +1,10 @@
 'use client'
 
-import React, { PureComponent } from 'react'
-import AreaChart from '../chart/AreaChart'
+import React from 'react'
+import AreaChart from '@/components/chart/AreaChart'
+import Tooltip from '@/components/chart/Tooltip'
+import { CartesianGrid, XAxis, YAxis } from 'recharts'
 
-type Props = {}
 const data = [
 	{
 		xAxis: 'A',
@@ -57,8 +58,15 @@ const data = [
 ]
 const dataKeys = ['uv', 'pv', 'ac', 'amt']
 const colors = ['#8884d8', '#82ca9d', '#4f2dec', '#5ac6be']
-const AreaChartEx = (props: Props) => {
-	return <AreaChart showYLine={false} stack data={data} colors={colors} dataKeys={dataKeys} />
+const AreaChartEx = () => {
+	return (
+		<AreaChart stack data={data} colors={colors} dataKeys={dataKeys}>
+			<Tooltip />
+			<CartesianGrid vertical={false} />
+			<XAxis padding={{ left: 16 }} dataKey="xAxis" axisLine={false} tickLine={false} />
+			<YAxis tickLine={false} />
+		</AreaChart>
+	)
 }
 
 export default AreaChartEx

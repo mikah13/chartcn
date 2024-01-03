@@ -1,23 +1,23 @@
 'use client'
-import React from 'react'
 
-import { Line, LineChart as LineRechart, ResponsiveContainer } from 'recharts'
-import { LineChartProps } from '@/app/types'
+import { PieChart as PieRechart, Pie, ResponsiveContainer } from 'recharts'
 
-const LineChart = ({
+import { PieChartProps } from '@/app/types'
+
+const PieChart = ({
 	width = '100%',
 	height = 350,
 	data,
 	colors,
 	dataKeys,
 	children,
-}: LineChartProps) => {
+}: PieChartProps) => {
 	return (
 		<ResponsiveContainer width={width} height={height}>
-			<LineRechart data={data}>
+			<PieRechart>
 				{children}
 				{dataKeys.map((dkey, index) => (
-					<Line
+					<Pie
 						key={index}
 						type="monotone"
 						dataKey={dkey}
@@ -27,9 +27,9 @@ const LineChart = ({
 						fill={`url(#color-${index})`}
 					/>
 				))}
-			</LineRechart>
+			</PieRechart>
 		</ResponsiveContainer>
 	)
 }
 
-export default LineChart
+export default PieChart

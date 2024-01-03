@@ -1,9 +1,9 @@
-import { TooltipProps } from 'recharts'
+import { TooltipProps, Tooltip as DefaultTooltip } from 'recharts'
 import { NameType, ValueType } from 'recharts/types/component/DefaultTooltipContent'
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 
-const Tooltip = <TValue extends ValueType, TName extends NameType>(
+const CustomTooltip = <TValue extends ValueType, TName extends NameType>(
 	props: TooltipProps<TValue, TName>
 ) => {
 	const { active, payload, label } = props
@@ -30,6 +30,18 @@ const Tooltip = <TValue extends ValueType, TName extends NameType>(
 		)
 	}
 
-	return null
+	return (
+		<Card>
+			<CardHeader className="px-4 py-2 border-b">
+				<CardTitle className="text-sm">No available data</CardTitle>
+			</CardHeader>
+		</Card>
+	)
+}
+
+const Tooltip = <TValue extends ValueType, TName extends NameType>(
+	props: TooltipProps<TValue, TName>
+) => {
+	return <DefaultTooltip {...props} content={<CustomTooltip />} />
 }
 export default Tooltip
